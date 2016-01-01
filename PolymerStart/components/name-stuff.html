@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../bower_components/polymer/polymer.html" rel="import">
+    <!-- Element Imports -->
+</head>
+
+<dom-module id="name-stuff">
+    <style>
+        /* CSS rules for your element */
+    </style>
+    <template>
+        <!-- local DOM for your element -->
+        <div>
+            <label class="label label-warning">{{time}}</label>
+            <br/>
+            <label class$="{{labelClass}}">{{label}}</label>
+            <input type="text" value="{{textValue::change}}" placeholder="{{placeholderText}}" />
+            <button type="button" class="btn btn-danger" on-click="buttonClickEvent">{{buttonText}}</button>
+
+            <div style$="{{resultsStyle}}" >
+                <h1>Results</h1>
+                <div>
+                    <label>Sith name:</label>
+                    <label>{{sithName }}</label>
+                </div>
+            </div>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "name-stuff",
+        properties: {
+            labelClass: {
+                type: String,
+                value:""
+            },
+            textValue: {
+                type: String,
+                value: "",
+                notify: true,
+                reflectToAttribute: true,
+            },
+            label: {
+                type: String,
+                value: "Test"
+            },
+            placeholderText: {
+                type: String,
+                value: "Enter text here..."
+            },
+            time: {
+                type: String,
+                value: new Date().toLocaleString()
+            },
+            buttonText: {
+                type: String,
+                value: "Click"
+            },
+            sithName: {
+                type: String,
+                value: ""
+            },
+            resultsStyle: {
+                type: String,
+                value: "display:none;"
+            }
+
+        },
+        ready: function(e){
+            this.buttonText =(new Date().getHours()>12)? "Click me!" :"Click here..";
+        },
+        buttonClickEvent: function (event) {
+            this.sithName = "Darth " + this.textValue.split("").reverse().join("");
+            this.resultsStyle = "display:block;"
+
+            this.fire('darthNameChanged', { newName: this.sithName });
+        },
+    });
+</script>

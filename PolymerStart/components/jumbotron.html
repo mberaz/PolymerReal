@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../bower_components/polymer/polymer.html" rel="import">
+    <!-- Element Imports -->
+</head>
+
+<dom-module id="jumbotron-test">
+    <style>
+        /* CSS rules for your element */
+    </style>
+    <template>
+        <!-- local DOM for your element -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">{{headerText}}</h1>
+                <p>This is a polymer test app</p>
+                <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>-->
+            </div>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "jumbotron-test",
+        properties: {
+            headerText: {
+                type: String,
+                value: ""
+            },
+            isRudeHeader: {
+                type: Boolean,
+                value:false,
+            },
+            numberOfTimes: {
+                type: Number,
+                value:1
+            }
+        },
+        ready: function(e){
+            this.headerText = this.headerText + (this.isRudeHeader ? (" Fuck you " + this.numberOfTimes+" times!") : "");
+        },
+
+    });
+</script>
