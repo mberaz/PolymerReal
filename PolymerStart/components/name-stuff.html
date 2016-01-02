@@ -72,10 +72,20 @@
             this.buttonText =(new Date().getHours()>12)? "Click me!" :"Click here..";
         },
         buttonClickEvent: function (event) {
-            this.sithName = "Darth " + this.textValue.split("").reverse().join("");
+            this.changeSithName(this.textValue);
+        },
+        changeSithName: function (newName) {
+            this.sithName = "Darth " + newName.split("").reverse().join("");
             this.resultsStyle = "display:block;"
 
             this.fire('darthNameChanged', { newName: this.sithName });
         },
+        clearValue: function () {
+            this.textValue = "";
+        },
+        hideSithName: function () {
+            this.sithName = "";
+            this.resultsStyle = "display:none;"
+        }
     });
 </script>
