@@ -15,7 +15,7 @@
             <div class="container">
                 <h1 class="display-3">{{headerText}}</h1>
                 <hr />
-                <p>This is a polymer test app</p>
+                <p>{{pText}}</p>
                 <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>-->
             </div>
         </div>
@@ -33,14 +33,22 @@
                 type: Boolean,
                 value:false,
             },
+            pText: {
+                type: String,
+                value: "This is a polymer test app"
+            },
             numberOfTimes: {
                 type: Number,
                 value:1
-            }
+            },
+            
         },
         ready: function(e){
             this.headerText = this.headerText + (this.isRudeHeader ? (" Fuck you " + this.numberOfTimes+" times!") : "");
         },
+        updateText: function (text) {
+            this.pText = text;
+        }
 
     });
 </script>

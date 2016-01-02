@@ -13,12 +13,12 @@
         <!-- local DOM for your element -->
         <div>
             <label class="label label-warning">{{time}}</label>
-            <br/>
+            <br />
             <label class$="{{labelClass}}">{{label}}</label>
             <input type="text" value="{{textValue::change}}" placeholder="{{placeholderText}}" />
             <button type="button" class="btn btn-danger" on-click="buttonClickEvent">{{buttonText}}</button>
 
-            <div style$="{{resultsStyle}}" >
+            <div style$="{{resultsStyle}}">
                 <h1>Results</h1>
                 <div>
                     <label>Sith name:</label>
@@ -34,7 +34,7 @@
         properties: {
             labelClass: {
                 type: String,
-                value:""
+                value: ""
             },
             textValue: {
                 type: String,
@@ -68,8 +68,8 @@
             }
 
         },
-        ready: function(e){
-            this.buttonText =(new Date().getHours()>12)? "Click me!" :"Click here..";
+        ready: function (e) {
+            this.buttonText = (new Date().getHours() > 12) ? "Click me!" : "Click here..";
         },
         buttonClickEvent: function (event) {
             this.changeSithName(this.textValue);
@@ -79,6 +79,10 @@
             this.resultsStyle = "display:block;"
 
             this.fire('darthNameChanged', { newName: this.sithName });
+        },
+        getSithName: function () {
+            return this.sithName;
+
         },
         clearValue: function () {
             this.textValue = "";
