@@ -1,0 +1,31 @@
+﻿<dom-module  id="employee-item">
+    <template>
+        <div>
+            <input type="checkbox" checked="{{employee.selected}}" />
+            <span># <span>{{empindex}}</span></span>
+            <span>First name: <span>{{employee.first}}</span></span>
+            <span>Last name: <span>{{employee.last}}</span></span>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'employee-item',          
+            properties: {
+                employee: {
+                    type: Object,
+                    value: { "selected":false, "first":'f', "last":'l' }
+                },
+                empindex: {
+                    type: Number,
+                    value:0
+                }
+            },
+            ready: function () {
+                console.log(this.employee);
+                console.log(this.empindex);
+            }
+        });
+    </script>
+
+</dom-module>

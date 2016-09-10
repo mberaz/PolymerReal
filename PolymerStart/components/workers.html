@@ -1,0 +1,59 @@
+﻿<!--<dom-module id="employee-list">
+    <template>
+        <label class="label label-success"> Employee list: </label>
+        <template is="dom-repeat" items="{{employees}}">
+            <div>
+                <input type="checkbox" checked="{{item.selected::change}}" on-click="checkedboxed" />
+                <span># <span>{{index}}</span></span>
+                <span>First name: <span>{{item.first}}</span></span>
+                <span>Last name: <span>{{item.last}}</span></span>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'employee-list',
+            ready: function () {
+                this.employees = [
+                    { id:1,first: 'Bob', last: 'Smith', selected: false },
+                    { id: 2, first: 'Sally', last: 'Johnson', selected: true },
+                ];
+            },
+            checkedboxed: function (e) {
+                var item = e.model.item;
+
+                for (var i = 0; i < this.employees.length; i++) {
+                    if(this.employees[i].id!=item.id)
+                    {
+                        this.employees[i].selected = false;
+                    }
+                }
+                this.fire('empChecked', { first: item.first });
+            }
+        });
+    </script>
+
+</dom-module>-->
+
+<dom-module id="employee-list">
+    <template>
+        <label class="label label-success"> Employee list: </label>
+        <template is="dom-repeat" items="{{employees}}">
+            <employee-item employee='{{item}}'  empindex="{{index}}"  ></employee-item>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'employee-list',
+            ready: function () {
+                this.employees = [
+                    { first: 'Bob', last: 'Smith', selected: false },
+                    { first: 'Sally', last: 'Johnson', selected: true },
+                ];
+            }
+        });
+    </script>
+
+</dom-module>

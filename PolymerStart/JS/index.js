@@ -8,6 +8,12 @@
 
         jumbo.updateText("All hail " + name);
     });
+    document.addEventListener('empChecked', function (e) {
+        var name = e.detail.first; // true
 
+        alert(name);
+    });
+
+    
   
 });

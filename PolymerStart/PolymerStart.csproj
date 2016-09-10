@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="components\employeeItem.html" />
+    <Content Include="components\workers.html" />
     <Content Include="packages.config" />
     <Content Include="bower_components\polymer\bower.json" />
     <Content Include="bower_components\polymer\build.log" />
