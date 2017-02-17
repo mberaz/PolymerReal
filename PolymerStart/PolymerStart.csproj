@@ -75,6 +75,7 @@
     <Content Include="bower_components\webcomponentsjs\build.log" />
     <Content Include="bower_components\webcomponentsjs\package.json" />
     <Content Include="bower_components\webcomponentsjs\README.md" />
+    <Content Include="PolymerScripts\nameStuff.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
